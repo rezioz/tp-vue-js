@@ -7,15 +7,23 @@
   {{cm}}
   {{mm}}
 
-  <form>
-    <input v-model="nom">
-    <input v-model="prenom">
-    <input v-model="date">
-    <input v-model="addr">
-  </form>>
+  <form v-if="seen" id="hide">
+    nom:<input v-model="nom">
+    <br>
+    prenom<input v-model="prenom">
+    <br>
+    date de naissance<input type="date" v-model="date">
+    <br>
+    adresse<input v-model="addr">
+  </form>
+
+  <div id="app" v-on:click="seen = !seen" class="control">
+      <p>click app</p>
+  </div>
 
 
 </template>
+
 
 
 <script>
@@ -30,6 +38,7 @@ export default defineComponent({
       prenom:'',
       date:'',
       addr:'',
+      seen: true,
 
     }
   },
